@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" type="text/css" href="styles/main.css"/>
+    <link rel="stylesheet" type="text/css" href="styles/reset.css"/>
+</head>
+<body>
+    <header>
+        <h1>- Register -</h1>
+    </header>
+
+    <main>
+        <form id="registerForm">
+            <h2>Sign up:</h2>
+            <div class="input-container">
+                <label for="usernameInput">Username:</label>
+                <input id="usernameInput" name="username" placeholder="Username" autocomplete="new-password"/>
+
+                <label for="passwordInput">Password:</label>
+                <input type="password" id="passwordInput" name="password" placeholder="Password" autocomplete="new-password"/>
+            </div>
+    
+            <button type="submit">Register</button>
+
+            <nav>
+                <p>Already have an account? <a href="login.html">Sign in</a></p>
+            </nav>
+        </form>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
