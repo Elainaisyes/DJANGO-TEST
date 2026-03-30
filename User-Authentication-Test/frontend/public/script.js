@@ -25,7 +25,7 @@ async function register(event) {
     const password = document.getElementById('passwordInput').value;
 
     const response = await fetch(
-        'http://localhost:3000/register', {
+        'http://localhost:8000/api/register/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -51,7 +51,7 @@ async function login (event) {
     const username = document.getElementById('usernameInput').value;
     const password = document.getElementById('passwordInput').value;
 
-    const response = await fetch("http://localhost:3000/login", {
+    const response = await fetch("http://localhost:8000/api/login/", {
         method:"POST",
         headers:{"Content-Type":"application/json"},
         credentials: 'include',
@@ -67,11 +67,12 @@ async function login (event) {
         return;
     }
 
-    window.location.replace('/dashboard');
+    window.location.replace('http://127.0.0.1:5500/User-Authentication-Test/frontend/private/dashboard.html');
 }
 
 async function loadUser() {
-    const res = await fetch('/api/user', {
+    const res = await fetch('http://localhost:8000/api/dashboard/', {
+        method: 'GET',
         credentials: 'include'
     });
 
@@ -88,10 +89,20 @@ async function loadUser() {
 }
 
 async function logout() {
-    await fetch('/logout', {
+    await fetch('http://localhost:8000/api/logout/', {
         method: 'POST',
         credentials: 'include'
     });
 
-    window.location.replace('/login.html');
+    window.location.replace('http://127.0.0.1:5500/User-Authentication-Test/frontend/public/login.html');
+}
+
+async function getNewAccessToken () {
+    const res = await fetch('http://localhost:8000/api/refresh/', {
+        method: 'POST',
+        credentials: 'include'
+    });
+
+    const data = await res.json();
+    return data.access
 }
